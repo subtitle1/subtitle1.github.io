@@ -173,32 +173,32 @@ tag: javaScript, library, jQuery, ajax, openAPI, JSP
 
 ```jsp
     // 모달객체 생성
-	var boxOfficeModal = new bootstrap.Modal(document.getElementById('modal-boxoffice'), {
-		keyboard: false
-	});
+    var boxOfficeModal = new bootstrap.Modal(document.getElementById('modal-boxoffice'), {
+        keyboard: false
+    });
 
-	$("#table-boxoffice tbody").on('click', '.btn', function() {
-		var movieCode = $(this).attr("data-movie-code");
-		
-		// 요청을 보냄
-		$.getJSON("https://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json", 
-			{key: "f5eef3421c602c6cb7ea224104795888", movieCd: movieCode}, 
-			
-			// 응답이 올 때 result 객체에 값이 전달돼서 옴
-			function(result) {
-				var movie = result.movieInfoResult.movieInfo;
-				$("#movie-title").text(movie.movieNm);
-				$("#movie-name-en").text(movie.movieNmEn);
-				$("#movie-open-data").text(movie.openDt);
-				$("#movie-show-time").text(movie.showTm);
-				$("#movie-genre").text(movie.genres.map(item => item.genreNm).join(', '));
-				$("#movie-watch-grade").text(movie.audits.map(item => item.watchGradeNm).join(', '));
-				$("#movie-directors").text(movie.directors.map(item => item.peopleNm).join(', '));
-				$("#movie-actors").text(movie.actors.map(item => item.peopleNm).filter((item, index) => index < 5).join(', '));
-				$("#movie-companys").text(movie.companys.map(item => item.companyNm + "("+item.companyPartNm+")").join(', '))
-				
-				// 모달창을 표시한다.
-				boxOfficeModal.show();		
-		});
-	});
+    $("#table-boxoffice tbody").on('click', '.btn', function() {
+        var movieCode = $(this).attr("data-movie-code");
+        
+        // 요청을 보냄
+        $.getJSON("https://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json", 
+            {key: "f5eef3421c602c6cb7ea224104795888", movieCd: movieCode}, 
+            
+            // 응답이 올 때 result 객체에 값이 전달돼서 옴
+            function(result) {
+                var movie = result.movieInfoResult.movieInfo;
+                $("#movie-title").text(movie.movieNm);
+                $("#movie-name-en").text(movie.movieNmEn);
+                $("#movie-open-data").text(movie.openDt);
+                $("#movie-show-time").text(movie.showTm);
+                $("#movie-genre").text(movie.genres.map(item => item.genreNm).join(', '));
+                $("#movie-watch-grade").text(movie.audits.map(item => item.watchGradeNm).join(', '));
+                $("#movie-directors").text(movie.directors.map(item => item.peopleNm).join(', '));
+                $("#movie-actors").text(movie.actors.map(item => item.peopleNm).filter((item, index) => index < 5).join(', '));
+                $("#movie-companys").text(movie.companys.map(item => item.companyNm + "("+item.companyPartNm+")").join(', '))
+                
+                // 모달창을 표시한다.
+                boxOfficeModal.show();		
+        });
+    });
 ```
