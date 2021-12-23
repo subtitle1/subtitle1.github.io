@@ -172,6 +172,7 @@ tag: javaScript, library, jQuery, ajax, openAPI, JSP
 3. 스크립트 코드 1과 같은 방식으로 화면에 출력한다.
 
 ```jsp
+<script>
     // 모달객체 생성
     var boxOfficeModal = new bootstrap.Modal(document.getElementById('modal-boxoffice'), {
         keyboard: false
@@ -201,4 +202,5 @@ tag: javaScript, library, jQuery, ajax, openAPI, JSP
                 boxOfficeModal.show();		
         });
     });
+</script>
 ```
