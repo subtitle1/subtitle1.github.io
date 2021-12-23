@@ -170,6 +170,7 @@ tag: javaScript, library, jQuery, ajax, openAPI, JSP
     - 선택한 버튼에서 data-movie-code 속성값을 movieCode 변수에 저장한다. <br>
     이 값이 있어야 상세정보 조회가 가능하다.
 3. 스크립트 코드 1과 같은 방식으로 화면에 출력한다.
+
 ```jsp
     // 모달객체 생성
 	var boxOfficeModal = new bootstrap.Modal(document.getElementById('modal-boxoffice'), {
