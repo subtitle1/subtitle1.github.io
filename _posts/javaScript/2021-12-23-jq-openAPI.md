@@ -3,7 +3,7 @@ layout: single
 title: "오픈 API로 일자별 영화 정보 조회하기"
 excerpt: 'jquery와 오픈 api 활용 '
 categories: javaScript
-tag: javaScript, library, jQuery, ajax, openAPI
+tag: javaScript, library, jQuery, ajax, openAPI, JSP
 ---
 > **영화진흥위원회에서 제공하는 오픈API로 간단한 상영 정보 조회하기!**
 
@@ -166,36 +166,40 @@ tag: javaScript, library, jQuery, ajax, openAPI
     - **$("#table-boxoffice tbody").on('click', '.btn', function()**
     - 아이디가 table-boxoffice tbody인 곳에 클래스가 btn인 버튼(상세정보)을 클릭 시 실행될 메소드
 2. **var movieCode = $(this).attr("data-movie-code");**
-    - 선택한 버튼에서 data-movie-code 속성값을 movieCode 변수에 저장한다. 이 값이 있어야 상세정보 조회가 가능하다.
+    - 선택한 버튼에서 data-movie-code 속성값을 movieCode 변수에 저장한다. <br>
+    이 값이 있어야 상세정보 조회가 가능하다.
 3. 스크립트 코드 1과 같은 방식으로 화면에 출력한다.
-```jsp
-// 모달객체 생성
-	var boxOfficeModal = new bootstrap.Modal(document.getElementById('modal-boxoffice'), {
-		keyboard: false
-	});
 
-	$("#table-boxoffice tbody").on('click', '.btn', function() {
-		var movieCode = $(this).attr("data-movie-code");
-		
-		// 요청을 보냄
-		$.getJSON("https://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json", 
-			{key: "f5eef3421c602c6cb7ea224104795888", movieCd: movieCode}, 
-			
-			// 응답이 올 때 result 객체에 값이 전달돼서 옴
-			function(result) {
-				var movie = result.movieInfoResult.movieInfo;
-				$("#movie-title").text(movie.movieNm);
-				$("#movie-name-en").text(movie.movieNmEn);
-				$("#movie-open-data").text(movie.openDt);
-				$("#movie-show-time").text(movie.showTm);
-				$("#movie-genre").text(movie.genres.map(item => item.genreNm).join(', '));
-				$("#movie-watch-grade").text(movie.audits.map(item => item.watchGradeNm).join(', '));
-				$("#movie-directors").text(movie.directors.map(item => item.peopleNm).join(', '));
-				$("#movie-actors").text(movie.actors.map(item => item.peopleNm).filter((item, index) => index < 5).join(', '));
-				$("#movie-companys").text(movie.companys.map(item => item.companyNm + "("+item.companyPartNm+")").join(', '))
-				
-				// 모달창을 표시한다.
-				boxOfficeModal.show();		
-		});
-	});
+```jsp
+<script>
+    // 모달객체 생성
+    var boxOfficeModal = new bootstrap.Modal(document.getElementById('modal-boxoffice'), {
+        keyboard: false
+    });
+
+    $("#table-boxoffice tbody").on('click', '.btn', function() {
+        var movieCode = $(this).attr("data-movie-code");
+        
+        // 요청을 보냄
+        $.getJSON("https://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json", 
+            {key: "f5eef3421c602c6cb7ea224104795888", movieCd: movieCode}, 
+            
+            // 응답이 올 때 result 객체에 값이 전달돼서 옴
+            function(result) {
+                var movie = result.movieInfoResult.movieInfo;
+                $("#movie-title").text(movie.movieNm);
+                $("#movie-name-en").text(movie.movieNmEn);
+                $("#movie-open-data").text(movie.openDt);
+                $("#movie-show-time").text(movie.showTm);
+                $("#movie-genre").text(movie.genres.map(item => item.genreNm).join(', '));
+                $("#movie-watch-grade").text(movie.audits.map(item => item.watchGradeNm).join(', '));
+                $("#movie-directors").text(movie.directors.map(item => item.peopleNm).join(', '));
+                $("#movie-actors").text(movie.actors.map(item => item.peopleNm).filter((item, index) => index < 5).join(', '));
+                $("#movie-companys").text(movie.companys.map(item => item.companyNm + "("+item.companyPartNm+")").join(', '))
+                
+                // 모달창을 표시한다.
+                boxOfficeModal.show();		
+        });
+    });
+</script>
 ```
