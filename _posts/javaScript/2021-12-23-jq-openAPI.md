@@ -9,9 +9,8 @@ tag: javaScript, library, jQuery, ajax, openAPI
 
 사진과 같이 날짜를 선택하고 조회버튼을 클릭했을 때 10개의 영화 정보를 띄우고, <br> 상세 정보 클릭 시에 영화에 대한 정보를 띄우는 모달창을 만들었다. (부트스트랩 사용)
 
-일별 박스오피스 오픈API: **[링크](https://www.kobis.or.kr/kobisopenapi/homepg/apiservice/searchServiceInfo.do)**에서 맨 하단으로 가면 url을 제공받을 수 있다. <br>
-영화 상세정보 API: **[링크](https://www.kobis.or.kr/kobisopenapi/homepg/apiservice/searchServiceInfo.do)**
-
+일별 박스오피스, 상세정보 오픈API: <br>
+**[링크](https://www.kobis.or.kr/kobisopenapi/homepg/apiservice/searchServiceInfo.do)**에서 맨 하단으로 가면 url을 제공받을 수 있다. <br>
 
 일별 박스오피스 조회 시에 필수 요청변수로 **key**와 **targetDt**, <br>
 상세정보 조회 시에는 **key**와 **movieCd**가 있으니 참고하자.
