@@ -194,7 +194,7 @@ tag: javaScript, library, jQuery, ajax, openAPI, JSP
                 $("#movie-genre").text(movie.genres.map(item => item.genreNm).join(', '));
                 $("#movie-watch-grade").text(movie.audits.map(item => item.watchGradeNm).join(', '));
                 $("#movie-directors").text(movie.directors.map(item => item.peopleNm).join(', '));
-                $("#movie-actors").text(movie.actors.map(item => item.peopleNm).filter((item, index) => index < 5).join(', '));
+                $("#movie-actors").text(movie.actors.map(item => item.peopleNm).filter((item, index) => index < 3).join(', '));
                 $("#movie-companys").text(movie.companys.map(item => item.companyNm + "("+item.companyPartNm+")").join(', '))
                 
                 // 모달창을 표시한다.
@@ -202,4 +202,25 @@ tag: javaScript, library, jQuery, ajax, openAPI, JSP
         });
     });
 </script>
+```
+
+> 배우 이름 꺼낼 때
+
+- movieInfoResult, movieInfo 안에 actors라는 맵 객체가 들어있다.
+- 이 객체를 이용해서 인덱스가 3인 객체까지 꺼내보도록 하자.
+
+![image](https://user-images.githubusercontent.com/87356533/147401439-d4a9c780-7520-4282-9378-3b314f74011a.png)
+
+```java
+    // 일반 함수 표현식
+    var actors = movie.actors.map(function(item) {
+        // ["톰 홀랜드", "베네딕트 컴버배치", "제이콥 배덜런", "제이콥 배덜런", "존 파브로", "마리사 토메이"]
+        return item.peopleNm; 
+    }.filter(function(item, index) {
+        // ["톰 홀랜드", "베네딕트 컴버배치", "제이콥 배덜런"]
+        return index < 3; 
+    }).join(", "); // "톰 홀랜드, 젠데이아 콜먼, 베네딕트 컴버배치"
+
+    // 화살표 함수 표현식
+    var actors = movie.actors.map(item => item.peopleNm).filter((item, index) => index < 3).join(', '));
 ```
