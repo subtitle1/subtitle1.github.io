@@ -3,7 +3,7 @@ layout: single
 title: "오픈 API로 일자별 영화 정보 조회하기"
 excerpt: 'jquery와 오픈 api 활용 '
 categories: javaScript
-tag: javaScript, library, jQuery, ajax, openAPI, JSP
+tag: javaScript, library, jQuery, ajax, openAPI, JSP, restAPI
 ---
 > **영화진흥위원회에서 제공하는 오픈API로 간단한 상영 정보 조회하기!**
 
