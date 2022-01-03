@@ -44,7 +44,6 @@ public String updateStock(int no, int amount) {
 > **jsp 하단의 javascript 코드**
 
 ```javascript
-
     // 1. 가격 변경 버튼 클릭 시
     $("#btn-update-price").click(function() {
         var price = parseInt($(":input[name=price]").val());
