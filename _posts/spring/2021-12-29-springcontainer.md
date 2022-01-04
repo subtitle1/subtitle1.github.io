@@ -1,6 +1,6 @@
 ---
 layout: single
-title: 스프링의 web.xml 살펴보기
+title: "[Spring] 스프링의 web.xml 살펴보기"
 excerpt: 'web.xml'
 categories: spring
 tag: spring, java
