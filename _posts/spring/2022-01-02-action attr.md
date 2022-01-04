@@ -63,5 +63,5 @@ public String updateStock(int no, int amount) {
     });
 ```
 
-전체 코드는 **[링크](https://github.com/subtitle1/spring-mybatis)**에서 확인 가능합니다.<br>
+전체 코드는 **[링크](https://github.com/subtitle1/sample-spring-app)**에서 확인 가능합니다.<br>
 (경로: src/main/webapp/WEB-INF/jsp/book/modifyForm)
