@@ -14,9 +14,9 @@ $indent-var: 1.3em !default;
 
 /* system typefaces */
 $serif: Georgia, Times, serif !default;
-$sans-serif: -apple-system, BlinkMacSystemFont, "Naum Gothic Coding", "Roboto", "Segoe UI",
-  "Helvetica Neue", "Lucida Grande", Arial, sans-serif !default;
-$monospace: Monaco, Consolas, "Lucida Console", monospace !default;
+$sans-serif: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Roboto', 'Segoe UI', 'Helvetica Neue',
+  'Lucida Grande', Arial, sans-serif !default;
+$monospace: 'Noto Sans KR', Monaco, Consolas, 'Lucida Console', monospace !default;
 
 /* sans serif typefaces */
 $sans-serif-narrow: $sans-serif !default;
@@ -172,8 +172,8 @@ $max-width: $x-large !default;
    ========================================================================== */
 
 $right-sidebar-width-narrow: 150px !default;  // 200px
-$right-sidebar-width: 250px !default;         // 300px
-$right-sidebar-width-wide: 250px !default;    // 400px
+$right-sidebar-width: 230px !default;         // 300px
+$right-sidebar-width-wide: 230px !default;    // 400px
 
 /*
    Other
