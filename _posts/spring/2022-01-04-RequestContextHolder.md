@@ -25,7 +25,7 @@ RequestContextHolder는 스프링에서 제공하는 유틸 클래스로, **요�
 
 
 # 2. RequestAttributes 객체의 주요 API
-**setAttribute** 지정된 scope에 주어진 객체를 지정된 이름으로 저장하는 메소드이다. 이때 scope는 요청객체, 세션객체가 가능하다. **removeAttribute**는 해당 속성명으로 저장된 객체를 삭제하고, getAttribute는 해당 속성명으로 저장된 객체를 반환하는 메소드이다. scope 자리에는 RequestAttributes.SCOPE_REQUEST, RequestAttributes.SCOPE_SESSION를 지정해서 요청객체/세션객체를 구분해서 속성을 관리할 수 있다.
+**setAttribute** 지정된 scope에 주어진 객체를 지정된 이름으로 저장하는 메소드이다. 이때 scope는 요청객체, 세션객체가 가능하다. **removeAttribute**는 해당 속성명으로 저장된 객체를 삭제하고, getAttribute는 해당 속성명으로 저장된 객체를 반환하는 메소드이다. **SCOPE_REQUEST와 SCOPE_SESSION**를 scope에 지정해서 요청객체/세션객체를 구분해서 속성을 관리할 수 있다.
 
 ```java
     void setAttribute(String name, Object value, int scope);
