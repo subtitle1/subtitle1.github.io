@@ -101,23 +101,10 @@ tag: javaScript, library, jQuery, ajax, openAPI, JSP, restAPI
     </div>
 </div>
 ```
+
 ---
+
 > **script 코드 1**
-
-- 스크립트 코드는 1, 2로 나누어서 살펴보도록 하자.
-    1. 조회버튼을 클릭 시 실행되는 이벤트핸들러 메소드를 등록하기
-        - **$("#btn-get-boxoffice")**이 '조회' 버튼에 해당되는 제이쿼리 집합객체이다
-    2. **var $tbody = $('#table-boxoffice tbody').empty();**
-        - 영화 정보들이 출력될 곳을 미리 비워둔다. 이 과정 없이 append()를 하면 그 전에 조회한 목록들 다음에 영화 목록이 출력된다.
-    3. **var date = $("input[name=date]").val().replace(/-/g, '');**
-        - name이 date인 input에서 값을 조회하고, replace로 날짜에 붙은 -를 없앤 후 변수에 저장한다.
-    4. $.ajax() 함수에 대한 내용은 **[해당 게시글 하단](https://subtitle1.github.io/javascript/jq-ajax/)**에 있다.
-    5. **success: function(result)**
-        - result의 값은 하단 이미지처럼 json 형식이다. <br> 
-        - 데이터 출력에 필요한 값은 result 객체 안에 있는 boxOfficeResult 하위에 존재하는 dailyBoxOfficeList다. <br> 
-        - **var boxOfficeList = result.boxOfficeResult.dailyBoxOfficeList;**
-
-    ![image](https://user-images.githubusercontent.com/87356533/147243511-b248a62b-49fb-48ad-80e2-efe92618ef79.png)
 
 ```jsp
 <script type="text/javascript">
@@ -160,15 +147,25 @@ tag: javaScript, library, jQuery, ajax, openAPI, JSP, restAPI
 </script>
 ```
 
-> **script 코드 2**
+- 스크립트 코드는 1, 2로 나누어서 살펴보도록 하자.
+    1. 조회버튼을 클릭 시 실행되는 이벤트핸들러 메소드를 등록하기
+        - **$("#btn-get-boxoffice")**이 '조회' 버튼에 해당되는 제이쿼리 집합객체이다
+    2. **var $tbody = $('#table-boxoffice tbody').empty();**
+        - 영화 정보들이 출력될 곳을 미리 비워둔다. 이 과정 없이 append()를 하면 그 전에 조회한 목록들 다음에 영화 목록이 출력된다.
+    3. **var date = $("input[name=date]").val().replace(/-/g, '');**
+        - name이 date인 input에서 값을 조회하고, replace로 날짜에 붙은 -를 없앤 후 변수에 저장한다.
+    4. $.ajax() 함수에 대한 내용은 **[해당 게시글 하단](https://subtitle1.github.io/javascript/jq-ajax/)**에 있다.
+    5. **success: function(result)**
+        - result의 값은 하단 이미지처럼 json 형식이다. <br> 
+        - 데이터 출력에 필요한 값은 result 객체 안에 있는 boxOfficeResult 하위에 존재하는 dailyBoxOfficeList다. <br> 
+        - **var boxOfficeList = result.boxOfficeResult.dailyBoxOfficeList;**
 
-1. 상세정보 버튼을 클릭했을 때 실행될 이벤트 핸들러 함수를 등록한다.
-    - **$("#table-boxoffice tbody").on('click', '.btn', function()**
-    - 아이디가 table-boxoffice tbody인 곳에 클래스가 btn인 버튼(상세정보)을 클릭 시 실행될 메소드
-2. **var movieCode = $(this).attr("data-movie-code");**
-    - 선택한 버튼에서 data-movie-code 속성값을 movieCode 변수에 저장한다. <br>
-    이 값이 있어야 상세정보 조회가 가능하다.
-3. 스크립트 코드 1과 같은 방식으로 화면에 출력한다.
+    ![image](https://user-images.githubusercontent.com/87356533/147243511-b248a62b-49fb-48ad-80e2-efe92618ef79.png)
+
+
+---
+
+> **script 코드 2**
 
 ```jsp
 <script>
@@ -203,6 +200,16 @@ tag: javaScript, library, jQuery, ajax, openAPI, JSP, restAPI
     });
 </script>
 ```
+
+1. 상세정보 버튼을 클릭했을 때 실행될 이벤트 핸들러 함수를 등록한다.
+    - **$("#table-boxoffice tbody").on('click', '.btn', function()**
+    - 아이디가 table-boxoffice tbody인 곳에 클래스가 btn인 버튼(상세정보)을 클릭 시 실행될 메소드
+2. **var movieCode = $(this).attr("data-movie-code");**
+    - 선택한 버튼에서 data-movie-code 속성값을 movieCode 변수에 저장한다. <br>
+    이 값이 있어야 상세정보 조회가 가능하다.
+3. 스크립트 코드 1과 같은 방식으로 화면에 출력한다.
+
+---
 
 > 배우 이름 꺼낼 때
 
