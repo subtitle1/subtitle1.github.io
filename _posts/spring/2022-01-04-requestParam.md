@@ -2,7 +2,7 @@
 layout: single
 title: "[Spring] @RequestParam과 활용"
 excerpt: '@RequestParam'
-categories: spring
+categories: Spring
 tag: spring, java, RequestContextHolder
 ---
 
