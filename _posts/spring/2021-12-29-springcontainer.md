@@ -2,7 +2,7 @@
 layout: single
 title: "[Spring] 스프링의 web.xml 살펴보기"
 excerpt: 'web.xml'
-categories: spring
+categories: Spring
 tag: spring, java
 ---
 

@@ -2,7 +2,7 @@
 layout: single
 title: "[Spring] form의 action값 변경"
 excerpt: 'jQuery의 attr() 메소드'
-categories: spring
+categories: Spring
 tag: spring, java, jquery, javascript
 ---
 

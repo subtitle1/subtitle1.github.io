@@ -2,7 +2,7 @@
 layout: single
 title: "[Spring] 로그인, 로그아웃 기능 구현"
 excerpt: 'RequestContextHolder 유틸 클래스'
-categories: spring
+categories: Spring
 tag: spring, java, RequestContextHolder
 ---
 

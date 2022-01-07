@@ -2,7 +2,7 @@
 layout: single
 title: "[Spring] 요청핸들러 메소드의 사용"
 excerpt: '요청핸들러 메소드'
-categories: spring
+categories: Spring
 tag: spring, java, controller
 ---
 
