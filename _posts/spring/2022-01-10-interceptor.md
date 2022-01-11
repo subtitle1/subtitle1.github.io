@@ -112,3 +112,31 @@ public class ErrorController {
 	 */
 }
 ```
+
+<br>
+---
+
+# 4. context-web.xml 설정
+```xml
+	<mvc:interceptors>
+		<!-- 
+			사용자정의 MethodInterceptor를 빈으로 등록한다.
+		 -->
+		 <!-- 
+		 	웹페이지 요청에 대한 로그인 체크를 담당하는 인터셉터
+		  -->
+		<mvc:interceptor>
+			<mvc:mapping path="/**/*.do"/>
+			<mvc:exclude-mapping path="/rest/**/*.do"/> <!-- 이 요청은 제외됨 -->
+			<bean class="com.sample.interceptor.LoginCheckInterceptor"></bean>
+		</mvc:interceptor>
+		
+		<!-- 
+			ajax 요청에 대한 로그인 체크를 담당하는 인터셉터
+		 -->
+		<mvc:interceptor>
+			<mvc:mapping path="/rest/**/*.do"/>
+			<bean class="com.sample.interceptor.RestLoginCheckInterceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+```
