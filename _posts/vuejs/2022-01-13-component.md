@@ -118,7 +118,7 @@ npm -save install axios
     // 스크립트에서는 다른 모듈을 import하거나 해당 모듈을 export 할 수 있다.
     // 타 컴포넌트에서 import 할 수 있다.
     export default {
-        getAllBooks() { // springboot에서 정의해놓은 service 메소드
+        getAllBooks() { 
             // 서버로 요청 보내기
             // 요청방식: GET
             // 요청URL: http://localhost/api/book
@@ -133,7 +133,7 @@ npm -save install axios
 # 5. export한 메소드의 사용
 위에서 정의한 getAllBooks() 메소드를 BookList 컴포넌트에서 정의해 보도록 하자. script 코드 부분만 확인해 보면 아래와 같다.
 
-> BookList 스크립트 코드
+> **BookList 스크립트 코드**
 
 ```js
     // 1. 해당 컴포넌트에서 사용하는 자식 컴포넌트를 import한다.
@@ -170,7 +170,7 @@ npm -save install axios
 </script>
 ```
 
-> BookList template 코드
+> **BookList template 코드**
 
 template 코드는 아래와 같다. **BookList 컴포넌트**는 아래 코드와 같이 **SearchForm, List, Pagination이라는 자식 컴포넌트로 구성**되어져 있다. \<List> 태그를 살펴보면 :bookList="books"라고 정의되어 있는 것을 확인할 수 있는데, bookList는 이 컴포넌트가 전해 줄 데이터를 받을 List 컴포넌트의 props 이름이다.
 
@@ -184,6 +184,16 @@ template 코드는 아래와 같다. **BookList 컴포넌트**는 아래 코드�
         </main>
     </template>
 ```
+
+> **BookList 컴포넌트 요약**
+- 자식 컴포넌트(List.vue)를 사용한다.
+- 자식 컴포넌트에게 books에 저장된 데이터를 전달한다.
+- 자식 컴포넌트에서는 bookList라는 props를 선언해서 전달받은 값을 저장해야 한다. \<List :bookList="books">
+- 이 컴포넌트가 사용하는 데이터는 data 메소드가 반환하는 객체다.
+- data 메소드가 반환하는 객체에 저장된 데이터는 이 컴포넌트 안에서 **this.프로퍼티명**으로 접근할 수 있다.
+- created 메소드에 정의된 수행문은 이 컴포넌트 객체가 생상된 직후에 실행된다.
+- created 메소드에서는 컴포넌트에서 사용할 초기 데이터를 서버와 통신해서 받아오는 작업을 주로 수행한다.
+
 
 > bookList를 전달받은 List 컴포넌트의 스크립트 코드
 
