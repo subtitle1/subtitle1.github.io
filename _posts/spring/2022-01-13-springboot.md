@@ -84,6 +84,9 @@ mybatis.mapper-locations=mybatis/mappers/*.xml
     }
 ```
 
+<br>
+---
+
 # 4. Dao 설정
 ![image](https://user-images.githubusercontent.com/87356533/149320563-73c62188-e6d7-4525-80da-99ef42e49156.png)
 
