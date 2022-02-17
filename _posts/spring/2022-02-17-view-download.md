@@ -56,21 +56,21 @@ View의 개념은 아래와 같다.
         private FileDownloadView filedownloadView;
 
         @GetMapping("/books")
-	    public ModelAndView booksListFile() {
+        public ModelAndView booksListFile() {
             ModelAndView mav = new ModelAndView();
 
             // ModelAndView 객체에 View 객체 저장
             mav.setView(filedownloadView);
-            
+
             // ModelAndView 객체에 Model 정보 저장
             mav.addObject("classpath", "classpath:excel/도서목록.xlsx");
-            
+
             // classpath 말고 아래와 같이 정의해 줘도 된다.
             // mav.addObject("directory", "전체 디렉토리 경로");
             // mav.addObject("filename", "파일명");
-		
-		    return mav;
-	    }
+
+            return mav;
+        }
     }
 ```
 
