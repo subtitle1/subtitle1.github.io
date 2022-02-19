@@ -16,10 +16,41 @@ connect by절을 사용해서 오늘 기준 지난 15일 간의 날짜를 찾는
 4. first_day + level - 1에서 level - 1은 x - 1로 생각하자.
 {: .notice}
 
+![image](https://user-images.githubusercontent.com/87356533/154790444-16e8fb7e-f886-4bf5-8d7c-fdd70eb0a83a.png)
+
+아래 sql문을 돌렸을 때 위 사진과 같은 결과가 나온다. 
+
 ```sql
     SELECT
         TO_CHAR (FIRST_DAY + LEVEL - 1, 'YYYYMMDD') days
     FROM 
         (SELECT TRUNC(SYSDATE - 15) FIRST_DAY FROM DUAL)
     CONNECT BY FIRST_DAY + LEVEL - 1 <= TRUNC(SYSDATE);
+```
+
+> 전체 sql
+
+```sql
+<select id="getTransactionAmountPerDay" resultType="com.hoge.dto.LabelDataDto">
+    SELECT 
+        SUBSTR(B.TODAY,-4) AS label, 
+        NVL(a.TRANSACTION_AMOUNT, 0) as data
+    FROM 
+        (SELECT 
+            TO_CHAR(TRANSACTION_DATE, 'YYYYMMDD') AS TRANSACTION_DATE,
+            SUM(TRANSACTION_AMOUNT) AS TRANSACTION_AMOUNT
+        FROM 
+            TB_FINAL_TRANSACTIONS
+        where 
+            TRANSACTION_TYPE=1
+        GROUP BY TO_CHAR(TRANSACTION_DATE, 'YYYYMMDD')) A, 
+        
+        (SELECT
+            TO_CHAR (FIRST_DAY + LEVEL -1, 'YYYYMMDD') TODAY
+        FROM 
+            (SELECT TRUNC(SYSDATE - 15) FIRST_DAY FROM DUAL)
+            CONNECT BY FIRST_DAY + LEVEL - 1 &lt;= TRUNC(SYSDATE)) B
+        WHERE B.TODAY = A.TRANSACTION_DATE(+)
+        ORDER BY B.TODAY;
+  </select>
 ```
