@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "[DB] Connect by level"
+title: "[DB] Connect by level, 계층쿼리"
 excerpt: ''
 categories: Database
 tag: sql, db, table
